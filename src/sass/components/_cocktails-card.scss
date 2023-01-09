@@ -1,136 +1,132 @@
-.cocktaile{
-    &__wrapper-top{
-        display: flex;
-        gap: 32px;
-    }
+.cocktaile {
+	position: relative;
+	&__wrapper-top {
+		display: flex;
+		gap: 32px;
+	}
 
-    &__wrapper-bottom{
-        margin-top: 40px;
-    }
+	&__wrapper-bottom {
+		margin-top: 40px;
+	}
 
-    @media screen and (max-width: $tablet){
-        position: relative;
-        padding: 40px 20px;
-    }
+	@media screen and (max-width: $tablet) {
+		position: relative;
+		padding: 40px 20px;
+	}
 }
 
+.cocktaile-card {
+	&__title {
+		margin-bottom: 20px;
+		color: $primary-text-color;
 
-.cocktaile-card{
-    &__title{
-    margin-bottom: 20px;
-    color: $primary-text-color;
+		@media screen and (min-width: $tablet) {
+			margin-bottom: 28px;
+		}
+	}
 
-    @media screen and (min-width: $tablet){
-        margin-bottom: 28px;   
-    }
-    }
+	&__instractions {
+		color: $primary-text-color;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 1.6;
+		text-transform: uppercase;
+		margin-bottom: 20px;
 
-    &__instractions{
-    color: $primary-text-color;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1.6;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+		@media screen and (min-width: $tablet) {
+			margin-bottom: 24px;
+			margin-left: 28px;
+		}
+	}
 
-    @media screen and (min-width: $tablet){
-        margin-bottom: 24px;
-        margin-left: 28px;   
-        }
-    }
+	&__description {
+		color: $modal-text-color;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.75;
+		margin-bottom: 32px;
 
-    &__description{
-    color: $modal-text-color;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.75;
-    margin-bottom: 32px;
+		@media screen and (min-width: $tablet) {
+			margin-left: 28px;
+		}
+	}
 
-    @media screen and (min-width: $tablet){
-        margin-left: 28px;   
-        }
-    }
+	&__image {
+		margin-bottom: 22px;
+		@media screen and (min-width: $tablet) {
+			margin-bottom: 28px;
+		}
+	}
 
-    &__image{
-    margin-bottom: 22px;
-    @media screen and (min-width: $tablet){
-        margin-bottom: 28px;   
-        }
-    }
+	&__btn {
+		font-family: "Roboto";
+		font-size: 20px;
+		line-height: 1.2;
 
-    &__btn{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 1.2;
+		background-color: $accent-color;
+		color: $primary-white;
+		padding: 12px 24px;
+		border: none;
+		border-radius: 4px;
 
-    background-color: $accent-color;
-    color: $primary-white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
+		@media screen and (min-width: $tablet) {
+			position: absolute;
+			bottom: 28px;
+			right: 28px;
+		}
+	}
 
-    @media screen and (min-width: $tablet){
-        position: absolute;
-        bottom: 28px;
-        right: 28px;
-    }
-    }
-
-    &__close-icon{
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    top: 23px;
-    right: 23px;
-    }
+	&__close-icon {
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		top: 23px;
+		right: 23px;
+	}
 }
 
-.cocktaile-ingredients{
-    &__title{
-    color: $primary-text-color;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1.6;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    }
+.cocktaile-ingredients {
+	&__title {
+		color: $primary-text-color;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 1.6;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+	}
 
-    &__per{
-    color: $title-text-color;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 8px; 
-    }
+	&__per {
+		color: $title-text-color;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 1.5;
+		margin-bottom: 8px;
+	}
 
-    &__list{
-        margin-bottom: 32px;
-    }
+	&__list {
+		margin-bottom: 32px;
+	}
 
-    &__item{
-    color: $modal-text-color;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    }
+	&__item {
+		color: $modal-text-color;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 26px;
+	}
 
-    &__star{
-    color: $title-text-color;   
-    }
+	&__star {
+		color: $title-text-color;
+	}
 }
 
-@media screen and (min-width: $tablet){
-    .mobile-size{
-        display: none;
-    }
+@media screen and (min-width: $tablet) {
+	.mobile-size {
+		display: none;
+	}
 }
 
-@media screen and (max-width: $tablet){
-    .tablet-size{
-        display: none;
-    }
+@media screen and (max-width: $tablet) {
+	.tablet-size {
+		display: none;
+	}
 }
-
-

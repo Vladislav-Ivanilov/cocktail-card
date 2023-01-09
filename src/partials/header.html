@@ -39,16 +39,43 @@
         <a href="" class="menu__link list">Favorite</a>
       </li>
     </ul>
+
+    <div class="header-search">
+      <form class="header-search__form list" id="search-form">
+        <button class="header-search__button list" type="submit">
+          <svg class="search__icon" width="25" height="25">
+            <use href="./images/icon.svg#search"></use>
+          </svg>
+        </button>
+        <input
+          class="header-search__input list"
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search "
+        />
+      </form>
+    </div>
+    <div class="header-switch">
+      <input class="header-switch__input" type="checkbox" id="switch" /><label
+        class="header-switch__label"
+        for="switch"
+        >Toggle</label
+      >
+    </div>
   </div>
 </div>
 
 <div class="menu-container js-menu-container" id="mobile-menu">
-  <div class="menu-container__cap">
-    <input class="menu-container__input" type="checkbox" id="switch" /><label
-      class="menu-container__label"
-      for="switch"
-      >Toggle</label
-    >
+  <div class="menu-container__switch">
+    <div class="header-switch">
+      <input class="header-switch__input" type="checkbox" id="switch" /><label
+        class="header-switch__label"
+        for="switch"
+        >Toggle</label
+      >
+    </div>
+
     <button class="menu-toggle js-close-menu">
       <svg class="header__icon" width="32" height="32">
         <use href="./images/icon.svg#close"></use>
@@ -56,8 +83,28 @@
     </button>
   </div>
 
-  <ul class="mobile-menu list">
-    <li><a href="" class="mobile-menu__link list">Home</a></li>
-    <li><a href="" class="mobile-menu__link list">Favorite</a></li>
-  </ul>
+  <div class="search">
+    <form class="search__form list" id="search-form">
+      <button class="search__button list" type="submit">
+        <svg class="search__icon" width="25" height="25">
+          <use href="./images/icon.svg#search"></use>
+        </svg>
+      </button>
+      <input
+        class="search__input list"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search "
+      />
+    </form>
+    <ul class="mobile-menu list">
+      <li class="mobile-menu__item">
+        <a href="" class="mobile-menu__link list">Home</a>
+      </li>
+      <li class="mobile-menu__item">
+        <a href="" class="mobile-menu__link list">Favorite</a>
+      </li>
+    </ul>
+  </div>
 </div>
