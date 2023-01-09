@@ -106,3 +106,107 @@
 		stroke: $primary-white;
 	}
 }
+.title {
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 1.9;
+	text-align: center;
+	color: $title-text-color;
+	margin-bottom: 60px;
+
+	@media screen and (min-width: $tablet) {
+		font-weight: 700;
+		font-size: 32px;
+	}
+
+	@media screen and (min-width: $desktop) {
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 1.5;
+	}
+}
+
+.card {
+	&__list-wrapper {
+		display: flex;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		@media screen and (min-width: $tablet) {
+			flex-direction: row;
+			gap: 30px;
+			flex-wrap: wrap;
+			flex-basis: calc((100% - 1 * 30px) / 2);
+		}
+	}
+
+	&__item {
+		border: 1px solid $accent-color;
+		border-radius: 4px;
+	}
+
+	&__image {
+		margin-bottom: 50px;
+		width: 100%;
+
+		// @media screen and (min-width: $tablet){
+		// width: 335px;
+		// }
+
+		// @media screen and (min-width: $desktop){
+		// width: 400px;
+		// }
+	}
+
+	&__title {
+		font-weight: 900;
+		font-size: 26px;
+		line-height: 1.6;
+		text-align: center;
+		color: $title-text-color;
+		margin-bottom: 16px;
+
+		@media screen and (min-width: $tablet) {
+			font-size: 28px;
+			line-height: 1.18;
+		}
+
+		@media screen and (min-width: $desktop) {
+			font-size: 32px;
+			line-height: 1.18;
+		}
+	}
+
+	&__btn-wrapper {
+		display: flex;
+		justify-content: center;
+		gap: 16px;
+		margin-bottom: 28px;
+	}
+
+	&__btn-learn {
+		line-height: 1.2;
+		letter-spacing: 0.02em;
+		color: $white;
+		padding: 8px 16px;
+
+		background: $accent-color;
+		border-radius: 4px;
+		border: none;
+	}
+
+	&__btn-add {
+		line-height: 1.2;
+		letter-spacing: 0.02em;
+		color: $accent-color;
+		padding: 8px 8px 8px 20px;
+
+		background-color: transparent;
+		border: 2px solid $accent-color;
+		border-radius: 4px;
+	}
+}
