@@ -43,7 +43,7 @@
 		}
 	}
 	&__button {
-		background-color: $primary-white;
+		background-color: transparent;
 		border: none;
 		width: 40px;
 		height: 100%;
@@ -63,10 +63,13 @@
 }
 
 .header-switch {
-	//display: none;
+	display: none;
 
 	@media (min-width: $desktop) {
-		display: none;
+		display: flex;
+		margin-left: auto;
+		justify-content: center;
+		align-items: center;
 	}
 
 	&__input {
@@ -177,17 +180,15 @@
 		align-items: center;
 
 		@media (min-width: $tablet) {
-			justify-content: center;
+			//justify-content: center;
 		}
 	}
 
 	//! switch
-	&__block {
-	}
 
 	&__input {
-		height: 0;
-		width: 0;
+		height: 2;
+		width: 3;
 		visibility: hidden;
 
 		&:checked + .menu-container__label {
@@ -286,10 +287,7 @@
 	}
 	&__icon {
 		fill: $accent-color;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 0;
+		margin-top: 5px;
 	}
 
 	&__input {
@@ -298,5 +296,15 @@
 		color: #5f6775;
 		opacity: 0.4;
 		padding-left: 8px;
+	}
+}
+
+.log-menu {
+	display: none;
+	@media (min-width: $tablet) {
+		display: block;
+	}
+	@media (min-width: $desktop) {
+		display: none;
 	}
 }
