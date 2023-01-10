@@ -68,13 +68,24 @@
 
 <div class="menu-container js-menu-container" id="mobile-menu">
   <div class="menu-container__switch">
-    <div class="header-switch">
-      <input class="header-switch__input" type="checkbox" id="switch" /><label
-        class="header-switch__label"
-        for="switch"
-        >Toggle</label
-      >
-    </div>
+    <picture class="log-menu">
+      <source
+        srcset="./images/logo/logo768.png 1x, ./images/logo/logo768@2x.png 2x"
+        type="image/png"
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="./images/logo/logo320.png 1x, ./images/logo/logo320@2x.png 2x"
+        type="image/png"
+        media="(max-width: 767px)"
+      />
+      <img class="header__img" src="./images/logo/logo320.png" alt="logo" />
+    </picture>
+    <input
+      class="menu-container__input"
+      type="checkbox"
+      id="switch-mob"
+    /><label class="menu-container__label" for="switch-mob">Toggle</label>
 
     <button class="menu-toggle js-close-menu">
       <svg class="header__icon" width="32" height="32">
