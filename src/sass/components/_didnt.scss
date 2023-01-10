@@ -1,0 +1,66 @@
+.didnt {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 42px;
+
+    @media screen and (min-width: $tablet) {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.3;
+    }
+
+    @media screen and (min-width: $desctop) {
+      font-size: 48px;
+      line-height: 1.5;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+}
+
+.fav-cocktails .fav-ingredients{
+  display: flex;
+  flex-wrap: wrap;
+
+  &__title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.9;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  @media screen and (min-width: $desctop) {
+    font-size: 48px;
+    line-height: 1.5;
+  }
+
+  &__article {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 3;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 24px;
+    line-height: 2.5;
+  }
+
+  @media screen and (min-width: $desctop) {
+    font-size: 32px;
+    line-height: 2.3;
+  }
+}
+
+
