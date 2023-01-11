@@ -1,3 +1,109 @@
+
+.hero-mob {
+	margin: 0 auto;
+
+	&__title {
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 1.9;
+		color: $accent-color;
+	}
+	&__img {
+		display: block;
+		width: 100%;
+	}
+
+	&__article {
+		margin-top: 50px;
+		text-align: center;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 2;
+	}
+
+	@media screen and (min-width: $tablet) {
+		display: none;
+	}
+}
+
+.hero-tablet {
+	display: none;
+
+	@media screen and (min-width: $tablet) {
+		display: flex;
+		gap: 20px;
+	}
+	@media screen and (min-width: $desktop) {
+		gap: 40px;
+	}
+
+	&__block {
+		@media screen and (min-width: $tablet) {
+			flex-basis: 370px;
+		}
+		@media screen and (min-width: $desktop) {
+			flex-basis: 690px;
+		}
+	}
+
+	&__title {
+		margin-top: 40px;
+		margin-bottom: 40px;
+		@media screen and (min-width: $tablet) {
+			font-weight: 600;
+			font-size: 26px;
+			line-height: 1.6;
+			color: $accent-color;
+		}
+	}
+	@media screen and (min-width: $desktop) {
+		font-weight: 600;
+		font-size: 52px;
+		line-height: 1.6;
+	}
+	&__article {
+		margin-bottom: 40px;
+		@media screen and (min-width: $tablet) {
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 1.5;
+		}
+	}
+	&__select {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1px;
+	}
+
+	&__letter {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@media screen and (min-width: $tablet) {
+			width: 25px;
+			height: 25px;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 1.5;
+			color: #5f6775;
+		}
+
+		@media screen and (min-width: $tablet) {
+			width: 40px;
+			height: 40px;
+			font-weight: 700;
+			font-size: 24px;
+		}
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+=======
 .hero-container {
 
     width: max-content;
@@ -254,4 +360,4 @@
   .active-select {
     display: block;
   }
-  
+

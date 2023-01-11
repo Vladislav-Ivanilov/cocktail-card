@@ -18,7 +18,7 @@
         <source
           srcset="./images/logo/logo320.png 1x, ./images/logo/logo320@2x.png 2x"
           type="image/png"
-          media="(max-width: 767px)"
+          media="(min-width: 767px)"
         />
         <img class="header__img" src="./images/logo/logo320.png" alt="logo" />
       </picture>
@@ -33,12 +33,28 @@
       </svg>
     </button>
 
-    <ul class="menu list">
-      <li class="menu__list"><a href="" class="menu__link list">Home</a></li>
-      <li class="menu__list">
-        <a href="" class="menu__link list">Favorite</a>
-      </li>
-    </ul>
+    <nav class="header-menu">
+      <ul class="header-menu__list list">
+        <li class="header-menu__item">
+          <a href="" class="header-menu__link list">Home</a>
+        </li>
+        <li class="header-menu__item">
+          <a href="" class="header-menu__link list">Favorite</a>
+          <ul class="header-menu__sub list">
+            <li class="header-menu__sub-item">
+              <a class="header-menu__sub-link list" href=""
+                >Favorite cocktails</a
+              >
+            </li>
+            <li class="header-menu__sub-item">
+              <a class="header-menu__sub-link list" href=""
+                >Favorite ingredients</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
     <div class="header-search">
       <form class="header-search__form list" id="search-form">
@@ -114,7 +130,21 @@
         <a href="" class="mobile-menu__link list">Home</a>
       </li>
       <li class="mobile-menu__item">
-        <a href="" class="mobile-menu__link list">Favorite</a>
+        <a href="./index.html" class="mobile-menu__link list"
+          >Favorite
+          <svg class="mobile-menu__icon" width="24" height="24">
+            <use href="./images/icon.svg#arrow"></use></svg
+        ></a>
+        <ul class="mobile-menu__sub list">
+          <li class="mobile-menu__sub-item">
+            <a class="mobile-menu__sub-link list" href="">Favorite cocktails</a>
+          </li>
+          <li class="mobile-menu__sub-item">
+            <a class="mobile-menu__sub-link list" href=""
+              >Favorite ingredients</a
+            >
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
