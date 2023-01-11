@@ -102,7 +102,7 @@
 	}
 	&__icon {
 		margin-left: 10px;
-    color:$white;
+    color:$background;
 
     &.active {
       color:$accent-color;
@@ -200,9 +200,12 @@
 		border-radius: 4px;
 	}
 
-	&__icon {
-		margin-left: 10px;
-		fill: $accent-color;
-		stroke: $primary-white;
-	}
+  &__icon {
+    margin-left: 10px;
+    color:$background;
+
+    &.active {
+      color:$accent-color;
+    }
+  }
 }
