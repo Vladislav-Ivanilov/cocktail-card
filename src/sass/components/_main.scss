@@ -102,8 +102,11 @@
 	}
 	&__icon {
 		margin-left: 10px;
-		fill: $accent-color;
-		stroke: $primary-white;
+    color:$white;
+
+    &.active {
+      color:$accent-color;
+    }
 	}
 }
 
@@ -176,6 +179,7 @@
 		color: $white;
 		padding: 8px 16px;
 		margin-right: 20px;
+    white-space: nowrap;
 
 		background: $accent-color;
 		border-radius: 4px;
