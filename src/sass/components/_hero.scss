@@ -1,6 +1,7 @@
 .hero-container {
-    
+
     width: max-content;
+    max-width: 100%;
   }
   
   .hero__title {
@@ -18,14 +19,14 @@
     width: 100%;
     margin-bottom: 28px;
   }
-  @media screen and (min-width: $mobile) {
+  @media screen and (min-width: 400px) {
     .hero__cocktail-pictures {
       width: 335px;
       margin-left: auto;
       margin-right: auto;
     }
   }
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: 1280px) {
     .hero__cocktail-pictures {
       width: 510px;
     }
@@ -83,7 +84,7 @@
     display: none;
   }
   
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: 768px) {
     .mobile {
       display: none;
     }
@@ -155,7 +156,7 @@
     }
   }
   
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: 1280px) {
     .hero__title {
       width: 684px;
       font-weight: 600;
@@ -235,13 +236,13 @@
     display: none;
   }
   
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: 767px) {
     .my-form {
       display: block;
     }
   }
   
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: 767px) {
     .hero__form-name {
       display: none;
     }
