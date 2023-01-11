@@ -1,2 +1,0 @@
-(function(){const e=document.getElementById("switch");let t=localStorage.getItem("theme")||"light";document.documentElement.classList.add(t),"dark"===t&&(e.checked=!0),e.addEventListener("click",(()=>{let e="light";"light"===t&&(e="dark"),document.documentElement.classList.remove(t),document.documentElement.classList.add(e),localStorage.setItem("theme",e),t=e}))})();
-//# sourceMappingURL=index.aaf0278d.js.map

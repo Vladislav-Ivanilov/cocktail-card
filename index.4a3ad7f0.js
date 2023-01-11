@@ -1,2 +1,0 @@
-!function(){var e,t;e=document.getElementById("switch"),t=localStorage.getItem("theme")||"light",document.documentElement.classList.add(t),"dark"===t&&(e.checked=!0),e.addEventListener("click",(function(){var e="light";"light"===t&&(e="dark"),document.documentElement.classList.remove(t),document.documentElement.classList.add(e),localStorage.setItem("theme",e),t=e}))}();
-//# sourceMappingURL=index.4a3ad7f0.js.map
