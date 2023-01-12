@@ -3,9 +3,7 @@ import axios from 'axios';
 const BASE_URL = 'https://thecocktaildb.com/api/json/v1/1';
 
 export default class CocktailsApi {
-    
-  async fetchCoctailsByName(searchCocktaile) {
-    //   www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+  async fetchCocktailsByName(searchCocktaile) {
     const { data } = await axios.get(
       `${BASE_URL}/search.php?s=${searchCocktaile}`
     );
@@ -33,6 +31,11 @@ export default class CocktailsApi {
 
   async fetchRandomCocktails() {
     const { data } = await axios.get(`${BASE_URL}/random.php?`);
+    return data;
+  }
+
+  async fetchCocktailsByFirstLetter(letter) {
+    const { data } = await axios.get(`${BASE_URL}//search.php?f=${letter}`);
     return data;
   }
 }
