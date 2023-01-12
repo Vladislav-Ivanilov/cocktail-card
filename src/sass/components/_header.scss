@@ -20,10 +20,20 @@
 			margin-right: 45px;
 		}
 	}
+
+  &__img {
+    width:123px;
+
+    @media (min-width: $tablet) {
+      width: 156px;
+    }
+  }
+
 	&__icon {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+    color:$primary-text-color;
 	}
 }
 
@@ -48,12 +58,14 @@
 		width: 40px;
 		height: 100%;
 		border-right: solid 1px $accent-color;
+    cursor: pointer;
 	}
 	&__icon {
 		fill: $accent-color;
 	}
 
 	&__input {
+    background: transparent;
 		outline: transparent;
 		line-height: 1.7;
 		color: #5f6775;
@@ -71,6 +83,14 @@
 		justify-content: center;
 		align-items: center;
 	}
+
+  &__name {
+    font-size:18px;
+
+    &.active {
+      color:$accent-color;
+    }
+  }
 
 	&__input {
 		height: 0;
@@ -93,6 +113,7 @@
 		text-indent: -9999px;
 		width: 40px;
 		height: 20px;
+    margin:0 12px;
 		background: $primary-white;
 		display: block;
 		border-radius: 100px;
@@ -117,20 +138,54 @@
 	}
 }
 
-.menu {
-	display: flex;
-	@media (max-width: $desktop) {
-		display: none;
+.header-menu {
+	&__list {
+		display: flex;
+    position: relative;
+    top: 13px;
+		@media (max-width: $desktop) {
+			display: none;
+		}
 	}
 
-	&__list {
+	&__item {
 		margin-right: 60px;
+		position: relative;
+		padding-bottom: 10px;
 		&:last-child {
 			margin-right: 250px;
+		}
+		&:hover .header-menu__sub {
+			display: block;
 		}
 	}
 
 	&__link {
+		font-size: 18px;
+		line-height: 1.3;
+		color: $primary-text-color;
+	}
+	&__sub {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 30px;
+		border: 1px solid $accent-color;
+		border-radius: 4px;
+	}
+	&__sub-item {
+		width: 210px;
+		padding: 12px;
+		&:hover,
+		&:focus {
+			background-color: $accent-color;
+			color: $background;
+      .header-menu__sub-link {
+        color: $background;
+      }
+		}
+	}
+	&__sub-link {
 		font-size: 18px;
 		line-height: 1.3;
 		color: $primary-text-color;
@@ -140,7 +195,8 @@
 .menu-toggle {
 	position: absolute;
 
-	right: 30px;
+	right:0;
+  top: 34px;
 
 	display: flex;
 	align-items: center;
@@ -150,6 +206,10 @@
 	cursor: pointer;
 	border: none;
 	border-radius: 50%;
+
+  &.js-close-menu {
+    right:34px;
+  }
 
 	@media (min-width: $desktop) {
 		display: none;
@@ -169,13 +229,13 @@
 	width: 100vw;
 	height: 100vh;
 	padding: 30px 20px;
-	background-color: $primary-white;
+	background-color: $background;
 	z-index: 999;
 
 	transform: translateX(100%);
 	transition: transform 250ms ease-in-out;
 
-	&__switch {
+	&__top {
 		display: flex;
 		align-items: center;
 
@@ -184,11 +244,31 @@
 		}
 	}
 
+  &__switch {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top:6px;
+
+    @media (min-width: $tablet) {
+      margin-left:60px;
+    }
+
+  }
+
+  &__switch-name {
+    font-size:18px;
+
+    &.active {
+      color:$accent-color;
+    }
+  }
+
 	//! switch
 
 	&__input {
-		height: 2;
-		width: 3;
+		height: 2px;
+		width: 3px;
 		visibility: hidden;
 
 		&:checked + .menu-container__label {
@@ -207,6 +287,7 @@
 		text-indent: -9999px;
 		width: 40px;
 		height: 20px;
+    margin:0 12px;
 		background: $primary-white;
 		display: block;
 		border-radius: 100px;
@@ -238,18 +319,67 @@
 	margin-top: 40px;
 
 	&__item {
+		width: 100%;
+		position: relative;
 		margin-bottom: 32px;
 		&:last-child {
 			margin-bottom: 0;
 		}
+		&:hover .mobile-menu__sub {
+			display: block;
+		}
+		&:hover .mobile-menu__icon {
+			transform: rotate(-90deg);
+		}
 	}
 
 	&__link {
-		display: block;
+		display: flex;
 
 		font-size: 28px;
 		line-height: 0.85;
-		color: #000000;
+		color: $primary-text-color;
+	}
+
+  &__icon {
+    color: $primary-text-color;
+  }
+
+	&__sub {
+		display: none;
+		position: absolute;
+		left: 0;
+		top: 30px;
+		border: 1px solid $accent-color;
+		border-radius: 4px;
+		@media (min-width: $tablet) {
+			left: -30%;
+			top: 30px;
+		}
+	}
+	&__sub-item {
+		width: 210px;
+		padding: 12px;
+		&:hover,
+		&:focus {
+			background-color: $accent-color;
+			color: $primary-white;
+		}
+	}
+	&__sub-link {
+		font-size: 18px;
+		line-height: 1.3;
+		color: $primary-text-color;
+		&:hover,
+		&:focus {
+			color: $primary-white;
+		}
+	}
+	&__icon {
+		margin-left: 8px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 }
 

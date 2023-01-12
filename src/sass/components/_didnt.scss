@@ -1,66 +1,117 @@
 .didnt {
-  display: flex;
-  flex-wrap: wrap;
+	width: 100%;
+	margin: 0 auto;
 
-  &__title {
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 42px;
+	@media screen and (min-width: $tablet) {
+		width: 495px;
+	}
 
-    @media screen and (min-width: $tablet) {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 1.3;
-    }
+	&__title {
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 42px;
+		text-align: center;
+		margin-top: 70px;
+		margin-bottom: 60px;
+		margin-top: 60px;
 
-    @media screen and (min-width: $desctop) {
-      font-size: 48px;
-      line-height: 1.5;
-    }
-  }
+		@media screen and (min-width: $tablet) {
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 1.3;
+			margin-top: 60px;
+		}
 
-  &__image {
-    display: block;
-    width: 100%;
-  }
+		@media screen and (min-width: $desktop) {
+			font-size: 48px;
+			line-height: 1.5;
+			margin-bottom: 70px;
+		}
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+	}
 }
 
-.fav-cocktails .fav-ingredients{
-  display: flex;
-  flex-wrap: wrap;
+.fav-cocktails {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
 
-  &__title {
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 1.9;
-  }
+	&__title {
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 1.9;
+		margin-bottom: 60px;
+		margin-top: 60px;
+	}
 
-  @media screen and (min-width: $tablet) {
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.2;
-  }
+	@media screen and (min-width: $tablet) {
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 1.2;
+		margin-top: 70px;
+	}
 
-  @media screen and (min-width: $desctop) {
-    font-size: 48px;
-    line-height: 1.5;
-  }
+	@media screen and (min-width: $desktop) {
+		font-size: 48px;
+		line-height: 1.5;
+	}
 
-  &__article {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 3;
-  }
+	&__article {
+		font-size: 20px;
+		line-height: 3;
+	}
 
-  @media screen and (min-width: $tablet) {
-    font-size: 24px;
-    line-height: 2.5;
-  }
+	@media screen and (min-width: $tablet) {
+		font-size: 24px;
+		line-height: 2.5;
+	}
 
-  @media screen and (min-width: $desctop) {
-    font-size: 32px;
-    line-height: 2.3;
-  }
+	@media screen and (min-width: $desktop) {
+		font-size: 32px;
+		line-height: 2.3;
+	}
 }
 
+.fav-ingredients {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	&__title {
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 1.9;
+		margin-bottom: 60px;
+		margin-top: 60px;
+	}
 
+	@media screen and (min-width: $tablet) {
+		font-weight: 700;
+		font-size: 32px;
+		line-height: 1.2;
+		margin-top: 70px;
+	}
+
+	@media screen and (min-width: $desktop) {
+		font-size: 48px;
+		line-height: 1.5;
+	}
+
+	&__article {
+		font-size: 20px;
+		line-height: 3;
+	}
+
+	@media screen and (min-width: $tablet) {
+		font-size: 24px;
+		line-height: 2.5;
+	}
+
+	@media screen and (min-width: $desktop) {
+		font-size: 32px;
+		line-height: 2.3;
+	}
+}
