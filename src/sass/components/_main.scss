@@ -19,6 +19,91 @@
 }
 
 .card {
+	&__list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+		@media screen and (min-width: $tablet) {
+			gap: 30px;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__item {
+		border: 1px solid $accent-color;
+		border-radius: 4px;
+
+		@media screen and (min-width: $tablet) {
+			width: calc((100% - 30px) / 2);
+		}
+
+		@media screen and (min-width: $desktop) {
+			width: calc((100% - 60px) / 3);
+		}
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+	}
+
+	&__title {
+		font-weight: 900;
+		font-size: 26px;
+		line-height: 1.6;
+		text-align: center;
+		color: $title-text-color;
+		margin-top: 50px;
+		margin-bottom: 15px;
+
+		@media screen and (min-width: $tablet) {
+			font-size: 28px;
+			line-height: 1.18;
+		}
+
+		@media screen and (min-width: $desktop) {
+			font-size: 32px;
+			line-height: 1.18;
+		}
+	}
+
+	&__btn {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 28px;
+	}
+
+	&__btn-learn {
+		width: fit-content;
+		line-height: 1.2;
+		color: $white;
+		padding: 8px 16px;
+		margin-right: 20px;
+
+		background: $accent-color;
+		border-radius: 4px;
+		border: none;
+	}
+
+	&__btn-add {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: fit-content;
+		line-height: 1.2;
+		color: $accent-color;
+		padding: 8px 8px 8px 20px;
+
+		background-color: transparent;
+		border: 2px solid $accent-color;
+		border-radius: 4px;
+	}
+	&__icon {
+		margin-left: 10px;
+    color:$background;
+=======
   &__list {
     display: flex;
     flex-direction: column;
@@ -181,6 +266,31 @@
     margin-right: 20px;
     white-space: nowrap;
 
+		background: $accent-color;
+		border-radius: 4px;
+		border: none;
+	}
+
+	&__btn-remove {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: fit-content;
+		line-height: 1.2;
+		color: $accent-color;
+		padding: 8px 8px 8px 20px;
+
+		background-color: transparent;
+		border: 2px solid $accent-color;
+		border-radius: 4px;
+	}
+
+  &__icon {
+    margin-left: 10px;
+    color:$background;
+
+    &.active {
+      color:$accent-color;
     background: $accent-color;
     border-radius: 4px;
     border: none;

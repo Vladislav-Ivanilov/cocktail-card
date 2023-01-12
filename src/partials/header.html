@@ -73,17 +73,19 @@
       </form>
     </div>
     <div class="header-switch">
+      <span class="header-switch__name switch-light">Light</span>
       <input class="header-switch__input" type="checkbox" id="switch" /><label
         class="header-switch__label"
         for="switch"
         >Toggle</label
       >
+      <span class="header-switch__name switch-dark">Dark</span>
     </div>
   </div>
 </div>
 
 <div class="menu-container js-menu-container" id="mobile-menu">
-  <div class="menu-container__switch">
+  <div class="menu-container__top">
     <picture class="log-menu">
       <source
         srcset="./images/logo/logo768.png 1x, ./images/logo/logo768@2x.png 2x"
@@ -97,11 +99,15 @@
       />
       <img class="header__img" src="./images/logo/logo320.png" alt="logo" />
     </picture>
-    <input
-      class="menu-container__input"
-      type="checkbox"
-      id="switch-mob"
-    /><label class="menu-container__label" for="switch-mob">Toggle</label>
+    <div class="menu-container__switch">
+      <span class="menu-container__switch-name switch-light">Light</span>
+      <input
+        class="menu-container__input"
+        type="checkbox"
+        id="switch-mob"
+      /><label class="menu-container__label" for="switch-mob">Toggle</label>
+      <span class="menu-container__switch-name switch-dark">Dark</span>
+    </div>
 
     <button class="menu-toggle js-close-menu">
       <svg class="header__icon" width="32" height="32">
