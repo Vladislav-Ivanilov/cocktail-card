@@ -1,4 +1,4 @@
-import './js/main-gallery'
+import './js/filterCocktails';
 
 import themeSelector from './js/theme-selector';
 import { Select } from './js/select';

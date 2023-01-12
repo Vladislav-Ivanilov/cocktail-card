@@ -2,18 +2,30 @@ import CocktailsApi from './cocktails_api';
 
 const api = new CocktailsApi();
 
+const refs = {
+  inputMobEL: document.querySelector('#search-form'),
+  inputEL: document.querySelector('#search-form-desktop'),
+  filterHeroMob: document.querySelector('.hero-mob__select-list'),
+  filterHero: document.querySelector('.hero-tablet__select'),
+};
+
+//refs.inputMobEL.addEventListener('submit');
+//refs.inputEL.addEventListener('submit');
+refs.filterHero.addEventListener('click', handelFilter);
+refs.filterHeroMob.addEventListener('click', handelFilter);
+
 class Pagination {
   constructor() {
-    (this.curentPage = 1),
-    (this.totalPages = 0),
-    (this.limit = 9),
-    (this.data = []);
+    (this.currentPage = 1),
+      (this.totalPages = 0),
+      (this.limit = 9),
+      (this.data = []);
   }
 
   createChunks() {
     const chunk = [...this.data].splice(
-      api.limit * (api.curentPage - 1),
-      api.limit
+      this.limit * (this.currentPage - 1),
+      this.limit
     );
     return chunk;
   }
@@ -21,13 +33,16 @@ class Pagination {
 
 const pagination = new Pagination();
 
-api
-  .fetchIngredientsByName('m') // зaмість м буде подія на алфавіт і тоді в зені треба зробити рендер фоток
-  .then(response => {
-    pagination.data = response.ingredients;
-    console.log(pagination.data)
-  });
+function handelFilter(event) {
+  const selectFilterId = event.target.id;
 
+  if (event.target.nodeName === 'LI') {
+    api.fetchCocktailsByFirstLetter(selectFilterId).then(response => {
+      pagination.data = response.drinks;
+      const items = pagination.createChunks();
+    });
+  }
+}
 
 function setPageLimit() {
   if (window.screen.width <= 768) {
@@ -74,11 +89,14 @@ function setPageLimit() {
 // renderMainPage();
 // getRandomCocktails();
 
-api.fetchCoctailsByName('negroni') // шукає коктель за назвою
-.then(response => console.log(response.drinks))
+api
+  .fetchCocktailsByName('negroni') // шукає коктель за назвою
+  .then(response => console.log(response.drinks));
 
-api.fetchCocktaileDetaileById('11007') // шукає коктель за ід
-.then(response => console.log(response))
+api
+  .fetchCocktaileDetaileById('11007') // шукає коктель за ід
+  .then(response => console.log(response));
 
-api.fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
-.then(response => console.log(response.ingredients))
+api
+  .fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
+  .then(response => console.log(response.ingredients));
