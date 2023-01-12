@@ -1,208 +1,211 @@
 .title {
-	font-weight: 600;
-	font-size: 22px;
-	line-height: 1.9;
-	text-align: center;
-	color: $title-text-color;
-	margin-bottom: 60px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.9;
+  text-align: center;
+  color: $title-text-color;
+  margin-bottom: 60px;
 
-	@media screen and (min-width: $tablet) {
-		font-weight: 700;
-		font-size: 32px;
-	}
+  @media screen and (min-width: $tablet) {
+    font-weight: 700;
+    font-size: 32px;
+  }
 
-	@media screen and (min-width: $desktop) {
-		font-weight: 700;
-		font-size: 48px;
-		line-height: 1.5;
-	}
+  @media screen and (min-width: $desktop) {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.5;
+  }
 }
 
 .card {
-	&__list {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 20px;
-		@media screen and (min-width: $tablet) {
-			gap: 30px;
-			flex-direction: row;
-			flex-wrap: wrap;
-		}
-	}
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    @media screen and (min-width: $tablet) {
+      gap: 30px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
 
-	&__item {
-		border: 1px solid $accent-color;
-		border-radius: 4px;
+  &__item {
+    border: 1px solid $accent-color;
+    border-radius: 4px;
 
-		@media screen and (min-width: $tablet) {
-			width: calc((100% - 30px) / 2);
-		}
+    @media screen and (min-width: $tablet) {
+      width: calc((100% - 30px) / 2);
+    }
 
-		@media screen and (min-width: $desktop) {
-			width: calc((100% - 60px) / 3);
-		}
-	}
+    @media screen and (min-width: $desktop) {
+      width: calc((100% - 60px) / 3);
+    }
+  }
 
-	&__image {
-		display: block;
-		width: 100%;
-	}
+  &__image {
+    display: block;
+    width: 100%;
+  }
 
-	&__title {
-		font-weight: 900;
-		font-size: 26px;
-		line-height: 1.6;
-		text-align: center;
-		color: $title-text-color;
-		margin-top: 50px;
-		margin-bottom: 15px;
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 1.6;
+    text-align: center;
+    color: $title-text-color;
+    margin-top: 50px;
+    margin-bottom: 15px;
 
-		@media screen and (min-width: $tablet) {
-			font-size: 28px;
-			line-height: 1.18;
-		}
+    @media screen and (min-width: $tablet) {
+      font-size: 28px;
+      line-height: 1.18;
+    }
 
-		@media screen and (min-width: $desktop) {
-			font-size: 32px;
-			line-height: 1.18;
-		}
-	}
+    @media screen and (min-width: $desktop) {
+      font-size: 32px;
+      line-height: 1.18;
+    }
+  }
 
-	&__btn {
-		display: flex;
-		justify-content: center;
-		margin-bottom: 28px;
-	}
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
 
-	&__btn-learn {
-		width: fit-content;
-		line-height: 1.2;
-		color: $white;
-		padding: 8px 16px;
-		margin-right: 20px;
+  &__btn-learn {
+    width: fit-content;
+    line-height: 1.2;
+    color: $white;
+    padding: 8px 16px;
+    margin-right: 20px;
 
-		background: $accent-color;
-		border-radius: 4px;
-		border: none;
-	}
+    background: $accent-color;
+    border-radius: 4px;
+    border: none;
+  }
 
-	&__btn-add {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: fit-content;
-		line-height: 1.2;
-		color: $accent-color;
-		padding: 8px 8px 8px 20px;
+  &__btn-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    line-height: 1.2;
+    color: $accent-color;
+    padding: 8px 8px 8px 20px;
 
-		background-color: transparent;
-		border: 2px solid $accent-color;
-		border-radius: 4px;
-	}
-	&__icon {
-		margin-left: 10px;
-    color:$white;
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    border-radius: 4px;
+  }
+  &__icon {
+    margin-left: 10px;
+    color: $white;
 
     &.active {
-      color:$accent-color;
+      color: $accent-color;
     }
-	}
+  }
 }
 
-.card-ingredients{
-	&__list {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 20px;
-		@media screen and (min-width: $tablet) {
-			gap: 30px;
-			flex-direction: row;
-			flex-wrap: wrap;
-		}
-	}
+.card-ingredients {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    @media screen and (min-width: $tablet) {
+      gap: 30px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
 
-	&__item {
-		border: 1px solid $accent-color;
-		border-radius: 4px;
-		padding: 20px;
+  &__item {
+    border: 1px solid $accent-color;
+    border-radius: 4px;
+    padding: 20px;
 
-		@media screen and (min-width: $tablet) {
-			width: calc((100% - 30px) / 2);
-		}
+    @media screen and (min-width: $tablet) {
+      width: calc((100% - 30px) / 2);
+    }
 
-		@media screen and (min-width: $desktop) {
-			width: calc((100% - 60px) / 3);
-		}
-	}
+    @media screen and (min-width: $desktop) {
+      width: calc((100% - 60px) / 3);
+    }
+  }
 
-	&__title {
-		font-weight: 900;
-		font-size: 26px;
-		line-height: 1.6;
-		color: $title-text-color;
-		margin-bottom: 20px;
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 1.6;
+    color: $title-text-color;
+    margin-bottom: 20px;
 
-		@media screen and (min-width: $tablet) {
-			font-size: 28px;
-			line-height: 1.18;
-		}
+    @media screen and (min-width: $tablet) {
+      font-size: 28px;
+      line-height: 1.18;
+    }
 
-		@media screen and (min-width: $desktop) {
-			font-size: 32px;
-			line-height: 1.18;
-		}
-	}
+    @media screen and (min-width: $desktop) {
+      font-size: 32px;
+      line-height: 1.18;
+    }
+  }
 
-	&__desc{
-		font-weight: 600;
-		font-size: 14px;
-		line-height: 1.5;
-		text-transform: uppercase;
-		color: $modal-text-color;
-		margin-bottom: 20px;
+  &__desc {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: $modal-text-color;
+    margin-bottom: 20px;
 
-		@media screen and (min-width: $tablet) {
-			font-size: 16px;
-		}
-	}
+    @media screen and (min-width: $tablet) {
+      font-size: 16px;
+    }
+  }
 
-	&__btn {
-		display: flex;
-		justify-content: center;
-	}
+  &__btn {
+    display: flex;
+    justify-content: center;
+  }
 
-	&__btn-learn {
-		width: fit-content;
-		line-height: 1.2;
-		color: $white;
-		padding: 8px 16px;
-		margin-right: 20px;
+  &__btn-learn {
+    width: fit-content;
+    line-height: 1.2;
+    color: $white;
+    padding: 8px 16px;
+    margin-right: 20px;
     white-space: nowrap;
 
-		background: $accent-color;
-		border-radius: 4px;
-		border: none;
-	}
+    background: $accent-color;
+    border-radius: 4px;
+    border: none;
+  }
 
-	&__btn-remove {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: fit-content;
-		line-height: 1.2;
-		color: $accent-color;
-		padding: 8px 8px 8px 20px;
+  &__btn-remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    line-height: 1.2;
+    color: $accent-color;
+    padding: 8px 8px 8px 20px;
 
-		background-color: transparent;
-		border: 2px solid $accent-color;
-		border-radius: 4px;
-	}
+    background-color: transparent;
+    border: 2px solid $accent-color;
+    border-radius: 4px;
+  }
 
-	&__icon {
-		margin-left: 10px;
-		fill: $accent-color;
-		stroke: $primary-white;
-	}
+  &__icon {
+    margin-left: 10px;
+    color: $white;
+
+    &.active {
+      color: $accent-color;
+    }
+  }
 }
