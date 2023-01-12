@@ -1,2 +1,0 @@
-(function(){const e=document.getElementById("switch"),t=document.getElementById("switch-mob");let c=localStorage.getItem("theme")||"light";document.documentElement.classList.add(c),"dark"===c&&(e.checked=!0,t.checked=!0);const d=()=>{let d="light",n=!1;"light"===c&&(d="dark",n=!0),e.checked=n,t.checked=n,document.documentElement.classList.remove(c),document.documentElement.classList.add(d),localStorage.setItem("theme",d),c=d};e.addEventListener("click",d),t.addEventListener("click",d)})();
-//# sourceMappingURL=index.54435b16.js.map
