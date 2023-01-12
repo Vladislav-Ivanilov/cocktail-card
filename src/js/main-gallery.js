@@ -5,9 +5,9 @@ const api = new CocktailsApi();
 class Pagination {
   constructor() {
     (this.curentPage = 1),
-      (this.totalPages = 0),
-      (this.limit = 9),
-      (this.data = []);
+    (this.totalPages = 0),
+    (this.limit = 9),
+    (this.data = []);
   }
 
   createChunks() {
@@ -25,6 +25,7 @@ api
   .fetchIngredientsByName('m') // зaмість м буде подія на алфавіт і тоді в зені треба зробити рендер фоток
   .then(response => {
     pagination.data = response.ingredients;
+    console.log(pagination.data)
   });
 
 
@@ -42,42 +43,42 @@ function setPageLimit() {
   }
 }
 
-setPageLimit();
+// setPageLimit();
 
-const getRandomCocktails = function () {
-  const randomCocktails = [];
-  const promises = [];
+// const getRandomCocktails = function () {
+//   const randomCocktails = [];
+//   const promises = [];
 
-  for (let index = 0; index < pagination.limit; index++) {
-    const promise = new Promise((resolve, reject) => {
-        api.fetchRandomCocktails().then(response => resolve(response));
-    });
-    promises.push(promise)
-}
-    console.log(promises)
-    Promise.all(promises).then(
-        response => response.map(r => randomCocktails.push(r.drinks[0]))
-    )
-    console.log(randomCocktails)
-    return randomCocktails
-};
+//   for (let index = 0; index < pagination.limit; index++) {
+//     const promise = new Promise((resolve, reject) => {
+//         api.fetchRandomCocktails().then(response => resolve(response));
+//     });
+//     promises.push(promise)
+// }
+//     console.log(promises)
+//     Promise.all(promises).then(
+//         response => response.map(r => randomCocktails.push(r.drinks[0]))
+//     )
+//     console.log(randomCocktails)
+//     return randomCocktails
+// };
 
-const renderMainPage = function() {
-    const randomCocktails = getRandomCocktails();
-    // console.log(randomCocktails);
-    randomCocktails.map(element => {
-        console.log(element)
-    });
-}
+// const renderMainPage = function() {
+//     const randomCocktails = getRandomCocktails();
+//     // console.log(randomCocktails);
+//     randomCocktails.map(element => {
+//         console.log(element)
+//     });
+// }
 
 // renderMainPage();
-getRandomCocktails();
+// getRandomCocktails();
 
-// api.fetchCoctailsByName('negroni') // шукає коктель за назвою
-// .then(response => console.log(response.drinks))
+api.fetchCoctailsByName('negroni') // шукає коктель за назвою
+.then(response => console.log(response.drinks))
 
-// api.fetchCocktaileDetaileById('11007') // шукає коктель за ід
-// .then(response => console.log(response))
+api.fetchCocktaileDetaileById('11007') // шукає коктель за ід
+.then(response => console.log(response))
 
-// api.fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
-// .then(response => console.log(response.ingredients))
+api.fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
+.then(response => console.log(response.ingredients))
