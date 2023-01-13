@@ -1,19 +1,29 @@
 .pagination {
-	&__list {
-		display: flex;
-	}
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
 
-	&__item {
-		font-size: 12px;
-		line-height: 1.25;
-		border-radius: 50%;
-		background-color: transparent;
-		border: 1px solid $accent-color;
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-		margin: 8px;
-		&:hover,
-		&:focus {
-			background-color: $accent-color;
-		}
-	}
+    font-size: 16px;
+    line-height: 1.25;
+    color: #1e1e1e;
+
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid $accent-color;
+
+    margin: 8px;
+	
+    &:hover,
+    &:focus {
+      background-color: $accent-color;
+    }
+  }
 }
