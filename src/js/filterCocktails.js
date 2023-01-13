@@ -2,8 +2,10 @@ import CocktailsApi from './cocktails_api';
 import cardCocktails from '../templates/cardCocktails.hbs';
 import cardIngredients from '../templates/cardIngredients.hbs';
 import errorPage from '../templates/errorPage.hbs';
+import { Select } from './select';
 
 const api = new CocktailsApi();
+const select = new Select('#selector');
 
 const refs = {
   inputMobEL: document.querySelector('#search-form'),
@@ -12,6 +14,7 @@ const refs = {
   filterHero: document.querySelector('.hero-tablet__select'),
   blockCardEL: document.querySelector('.card__list'),
   titleEL: document.querySelector('#list-title'),
+  inputFilterEl: document.querySelector('.hero-mob__select-input>span'),
 };
 
 refs.inputMobEL.addEventListener('submit', handelInputSubmit);
@@ -48,6 +51,8 @@ function handelFilter(event) {
       const items = pagination.createChunks();
       refs.blockCardEL.innerHTML = '';
       refs.titleEL.textContent = 'Searching results';
+      refs.inputFilterEl.textContent = event.target.id;
+      select.close();
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
     });
   }
@@ -122,12 +127,12 @@ function setPageLimit() {
 
 api
   .fetchCocktailsByName('negroni') // шукає коктель за назвою
-  .then(response => console.log(response.drinks));
+  .then(response => response.drinks);
 
 api
   .fetchCocktaileDetaileById('11007') // шукає коктель за ід
-  .then(response => console.log(response));
+  .then(response => response);
 
 api
   .fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
-  .then(response => console.log(response.ingredients));
+  .then(response => response.ingredients);

@@ -6,3 +6,5 @@ import { Select } from './js/select';
 themeSelector();
 
 const select = new Select('#selector');
+
+select.setup();
