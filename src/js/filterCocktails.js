@@ -1,4 +1,7 @@
 import CocktailsApi from './cocktails_api';
+import cardCocktails from '../templates/cardCocktails.hbs';
+import cardIngredients from '../templates/cardIngredients.hbs';
+import errorPage from '../templates/errorPage.hbs';
 
 const api = new CocktailsApi();
 
@@ -7,10 +10,12 @@ const refs = {
   inputEL: document.querySelector('#search-form-desktop'),
   filterHeroMob: document.querySelector('.hero-mob__select-list'),
   filterHero: document.querySelector('.hero-tablet__select'),
+  blockCardEL: document.querySelector('.card__list'),
+  titleEL: document.querySelector('#list-title'),
 };
 
-//refs.inputMobEL.addEventListener('submit');
-//refs.inputEL.addEventListener('submit');
+refs.inputMobEL.addEventListener('submit', handelInputSubmit);
+refs.inputEL.addEventListener('submit', handelInputSubmit);
 refs.filterHero.addEventListener('click', handelFilter);
 refs.filterHeroMob.addEventListener('click', handelFilter);
 
@@ -39,9 +44,35 @@ function handelFilter(event) {
   if (event.target.nodeName === 'LI') {
     api.fetchCocktailsByFirstLetter(selectFilterId).then(response => {
       pagination.data = response.drinks;
+      setPageLimit();
       const items = pagination.createChunks();
+      refs.blockCardEL.innerHTML = '';
+      refs.titleEL.textContent = 'Searching results';
+      refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
     });
   }
+}
+
+function handelInputSubmit(event) {
+  event.preventDefault();
+
+  const searchQuery = event.currentTarget.elements.searchQuery.value;
+
+  api.fetchCocktailsByName(searchQuery).then(response => {
+    if (!response.drinks) {
+      refs.titleEL.textContent = '';
+      refs.blockCardEL.innerHTML = '';
+      refs.blockCardEL.insertAdjacentHTML('afterbegin', errorPage());
+      return;
+    }
+
+    pagination.data = response.drinks;
+    setPageLimit();
+    const items = pagination.createChunks();
+    refs.blockCardEL.innerHTML = '';
+    refs.titleEL.textContent = 'Searching results';
+    refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+  });
 }
 
 function setPageLimit() {
