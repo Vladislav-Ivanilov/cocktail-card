@@ -41,13 +41,14 @@ class Pagination {
 
 const pagination = new Pagination();
 
+setPageLimit();
+
 function handelFilter(event) {
   const selectFilterId = event.target.id;
 
   if (event.target.nodeName === 'LI') {
     api.fetchCocktailsByFirstLetter(selectFilterId).then(response => {
       pagination.data = response.drinks;
-      setPageLimit();
       const items = pagination.createChunks();
       refs.blockCardEL.innerHTML = '';
       refs.titleEL.textContent = 'Searching results';
@@ -94,36 +95,32 @@ function setPageLimit() {
   }
 }
 
-// setPageLimit();
+const getRandomCocktails = function () {
+  const randomCocktails = [];
+  const promises = [];
 
-// const getRandomCocktails = function () {
-//   const randomCocktails = [];
-//   const promises = [];
+  for (let index = 0; index < pagination.limit; index++) {
+    const promise = new Promise((resolve, reject) => {
+      api.fetchRandomCocktails().then(response => resolve(response));
+    });
+    promises.push(promise);
+  }
 
-//   for (let index = 0; index < pagination.limit; index++) {
-//     const promise = new Promise((resolve, reject) => {
-//         api.fetchRandomCocktails().then(response => resolve(response));
-//     });
-//     promises.push(promise)
-// }
-//     console.log(promises)
-//     Promise.all(promises).then(
-//         response => response.map(r => randomCocktails.push(r.drinks[0]))
-//     )
-//     console.log(randomCocktails)
-//     return randomCocktails
-// };
+  Promise.all(promises).then(response => renderMainPage(response));
+};
 
-// const renderMainPage = function() {
-//     const randomCocktails = getRandomCocktails();
-//     // console.log(randomCocktails);
-//     randomCocktails.map(element => {
-//         console.log(element)
-//     });
-// }
+function renderMainPage(cocktails) {
+  refs.blockCardEL.innerHTML = '';
 
-// renderMainPage();
-// getRandomCocktails();
+  for (const key in cocktails) {
+    refs.blockCardEL.insertAdjacentHTML(
+      'afterbegin',
+      cardCocktails(...cocktails[key].drinks)
+    );
+  }
+}
+
+getRandomCocktails();
 
 api
   .fetchCocktailsByName('negroni') // шукає коктель за назвою
