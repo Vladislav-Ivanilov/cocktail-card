@@ -18,10 +18,6 @@ export class Select {
     }
   }
 
-  //changePlaceholder(placeholder = 'A') {
-  //  this.el.firstChild.nextSibling.firstChild.textContent = placeholder;
-  //}
-
   isOpen() {
     return this.el.classList.contains('open');
   }

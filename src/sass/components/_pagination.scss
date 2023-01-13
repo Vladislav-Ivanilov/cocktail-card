@@ -1,0 +1,19 @@
+.pagination {
+	&__list {
+		display: flex;
+	}
+
+	&__item {
+		font-size: 12px;
+		line-height: 1.25;
+		border-radius: 50%;
+		background-color: transparent;
+		border: 1px solid $accent-color;
+
+		margin: 8px;
+		&:hover,
+		&:focus {
+			background-color: $accent-color;
+		}
+	}
+}
