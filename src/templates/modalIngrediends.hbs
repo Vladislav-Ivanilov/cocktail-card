@@ -1,4 +1,5 @@
 {{#each}}
+
   <div class='ingredients'>
     <h3 class='ingredients__title'>{{strDrink}}</h3>
     <p class='ingredients__base'>{{strType}}</p>
@@ -24,7 +25,7 @@
       </li>
     </ul>
     <div class='ingredients__btn-wrapper'>
-      <button class='ingredients__btn'>Add to favorite</button>
+      <button class='ingredients__btn' id={{idDrink}}>Add to favorite</button>
     </div>
     <button class='ingredients__close-btn'>
       <svg width='32' height='32'>

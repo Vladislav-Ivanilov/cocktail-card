@@ -1,10 +1,9 @@
 {{#each this}}
   <li class='card__item' {{idDrink}}>
-    <img class='card__image' src='{{strDrinkThumb}}' alt='' />
+    <img class='card__image' src={{strDrinkThumb}} alt='' />
     <h3 class='card__title'>{{strDrink}}</h3>
     <div class='card__btn'>
-      <button class='card__btn-learn'>Learn more</button>
-      Learn more
+      <button class='card__btn-learn'id={{idDrink}}>Learn more</button>
       <button class='card__btn-add'>
         Add to
         <svg class='card__icon' width='18' height='18'>
