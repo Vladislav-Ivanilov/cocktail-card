@@ -69,3 +69,17 @@ body {
 .section {
 	padding: 60px 0;
 }
+
+.modal {
+  background-color:$background;
+}
+
+div.basicLightbox {
+  align-items: flex-start;
+  overflow-y:scroll;
+
+  @media screen and (min-width: $tablet) {
+    align-items: center;
+    overflow: auto;
+  }
+}

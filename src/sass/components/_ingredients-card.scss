@@ -7,7 +7,6 @@
   @media screen and (min-width: $tablet) {
     padding: 40px 28px 28px 28px;
     width: 820px;
-    height: 600px;
   }
 
   &__title {
@@ -22,7 +21,7 @@
     font-weight: 600;
     line-height: 1.5;
     text-transform: uppercase;
-    color: #202025;
+    color: $primary-text-color;
     margin-bottom: 20px;
     @media screen and (min-width: $tablet) {
       margin-bottom: 40px;
@@ -90,5 +89,6 @@
     color: $primary-text-color;
     background-color: transparent;
     border: none;
+    cursor:pointer;
   }
 }
