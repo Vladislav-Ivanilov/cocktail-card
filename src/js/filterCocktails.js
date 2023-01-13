@@ -13,6 +13,7 @@ const refs = {
   filterHeroMob: document.querySelector('.hero-mob__select-list'),
   filterHero: document.querySelector('.hero-tablet__select'),
   blockCardEL: document.querySelector('.card__list'),
+  mainEl: document.querySelector('.card'),
   titleEL: document.querySelector('#list-title'),
   inputFilterEl: document.querySelector('.hero-mob__select-input>span'),
 };
@@ -50,6 +51,7 @@ function handelFilter(event) {
     api.fetchCocktailsByFirstLetter(selectFilterId).then(response => {
       pagination.data = response.drinks;
       const items = pagination.createChunks();
+      console.log(items);
       refs.blockCardEL.innerHTML = '';
       refs.titleEL.textContent = 'Searching results';
       refs.inputFilterEl.textContent = event.target.id;
@@ -64,21 +66,27 @@ function handelInputSubmit(event) {
 
   const searchQuery = event.currentTarget.elements.searchQuery.value;
 
-  api.fetchCocktailsByName(searchQuery).then(response => {
-    if (!response.drinks) {
+  api
+    .fetchCocktailsByName(searchQuery)
+    .then(response => {
+      if (!response.drinks.length) {
+        console.log('eror');
+        throw new Error(error);
+      }
+
+      pagination.data = response.drinks;
+      setPageLimit();
+      const items = pagination.createChunks();
+
+      refs.blockCardEL.innerHTML = '';
+      refs.titleEL.textContent = 'Searching results';
+      refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+    })
+    .catch(() => {
       refs.titleEL.textContent = '';
       refs.blockCardEL.innerHTML = '';
       refs.blockCardEL.insertAdjacentHTML('afterbegin', errorPage());
-      return;
-    }
-
-    pagination.data = response.drinks;
-    setPageLimit();
-    const items = pagination.createChunks();
-    refs.blockCardEL.innerHTML = '';
-    refs.titleEL.textContent = 'Searching results';
-    refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
-  });
+    });
 }
 
 function setPageLimit() {
@@ -115,7 +123,7 @@ function renderMainPage(cocktails) {
   for (const key in cocktails) {
     refs.blockCardEL.insertAdjacentHTML(
       'afterbegin',
-      cardCocktails(...cocktails[key].drinks)
+      cardCocktails(cocktails[key].drinks)
     );
   }
 }
@@ -128,8 +136,10 @@ api
 
 api
   .fetchCocktaileDetaileById('11007') // шукає коктель за ід
-  .then(response => response);
-
+  .then(response => {
+    console.log(response);
+    return response;
+  });
 api
   .fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
   .then(response => response.ingredients);
