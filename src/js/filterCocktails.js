@@ -42,8 +42,6 @@ class Pagination {
   }
 }
 
-
-
 const pagination = new Pagination();
 
 setPageLimit();
@@ -81,25 +79,32 @@ function handelInputSubmit(event) {
         throw new Error(error);
       }
 
-      pagination.data = response.drinks;
-      let counter = 1;
-      let partOfData = [];
+      //pagination.data = response.drinks;
+      //let counter = 1;
+      //let partOfData = [];
 
-      response.drinks.forEach(element => {
-        partOfData.push(element);
+      //response.drinks.forEach(element => {
+      //  partOfData.push(element);
 
-        if (partOfData.length === pagination.limit) {
-          paginationObj[counter] = partOfData;
-          partOfData = [];
-          counter += 1;
-        }
-      });
+      //  if (partOfData.length === pagination.limit) {
+      //    paginationObj[counter] = partOfData;
+      //    partOfData = [];
+      //    counter += 1;
+      //  }
+      //});
 
-			const paginationInsert = 
+      //function paginationInsert(arrData, rowPerPAge, page) {
+      //  const start = rowPerPAge * page;
+      //  const end = start * rowPerPAge;
+      //  const paginationData = arrData.slice(start, end);
 
+      //  paginationData.forEach(element => {
+
+      //	});
+      //}
 
       console.log(paginationObj);
-			//class="pagination__item">
+      //class="pagination__item">
 
       setPageLimit();
       const items = pagination.createChunks();

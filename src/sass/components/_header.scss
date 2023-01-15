@@ -21,19 +21,19 @@
 		}
 	}
 
-  &__img {
-    width:123px;
+	&__img {
+		width: 123px;
 
-    @media (min-width: $tablet) {
-      width: 156px;
-    }
-  }
+		@media (min-width: $tablet) {
+			width: 156px;
+		}
+	}
 
 	&__icon {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-    color:$primary-text-color;
+		color: $primary-text-color;
 	}
 }
 
@@ -58,18 +58,17 @@
 		width: 40px;
 		height: 100%;
 		border-right: solid 1px $accent-color;
-    cursor: pointer;
+		cursor: pointer;
 	}
 	&__icon {
 		fill: $accent-color;
 	}
 
 	&__input {
-    background: transparent;
+		background: transparent;
 		outline: transparent;
 		line-height: 1.7;
-		color: #5f6775;
-		opacity: 0.4;
+		color: $accent-color;
 		padding-left: 8px;
 	}
 }
@@ -84,13 +83,13 @@
 		align-items: center;
 	}
 
-  &__name {
-    font-size:18px;
+	&__name {
+		font-size: 18px;
 
-    &.active {
-      color:$accent-color;
-    }
-  }
+		&.active {
+			color: $accent-color;
+		}
+	}
 
 	&__input {
 		height: 0;
@@ -113,7 +112,7 @@
 		text-indent: -9999px;
 		width: 40px;
 		height: 20px;
-    margin:0 12px;
+		margin: 0 12px;
 		background: $primary-white;
 		display: block;
 		border-radius: 100px;
@@ -141,8 +140,8 @@
 .header-menu {
 	&__list {
 		display: flex;
-    position: relative;
-    top: 13px;
+		position: relative;
+		top: 13px;
 		@media (max-width: $desktop) {
 			display: none;
 		}
@@ -180,9 +179,9 @@
 		&:focus {
 			background-color: $accent-color;
 			color: $background;
-      .header-menu__sub-link {
-        color: $background;
-      }
+			.header-menu__sub-link {
+				color: $background;
+			}
 		}
 	}
 	&__sub-link {
@@ -195,8 +194,8 @@
 .menu-toggle {
 	position: absolute;
 
-	right:0;
-  top: 34px;
+	right: 0;
+	top: 34px;
 
 	display: flex;
 	align-items: center;
@@ -207,9 +206,9 @@
 	border: none;
 	border-radius: 50%;
 
-  &.js-close-menu {
-    right:34px;
-  }
+	&.js-close-menu {
+		right: 34px;
+	}
 
 	@media (min-width: $desktop) {
 		display: none;
@@ -244,25 +243,24 @@
 		}
 	}
 
-  &__switch {
-    display: flex;
-    align-items: center;
-    position: relative;
-    top:6px;
+	&__switch {
+		display: flex;
+		align-items: center;
+		position: relative;
+		top: 6px;
 
-    @media (min-width: $tablet) {
-      margin-left:60px;
-    }
+		@media (min-width: $tablet) {
+			margin-left: 60px;
+		}
+	}
 
-  }
+	&__switch-name {
+		font-size: 18px;
 
-  &__switch-name {
-    font-size:18px;
-
-    &.active {
-      color:$accent-color;
-    }
-  }
+		&.active {
+			color: $accent-color;
+		}
+	}
 
 	//! switch
 
@@ -287,7 +285,7 @@
 		text-indent: -9999px;
 		width: 40px;
 		height: 20px;
-    margin:0 12px;
+		margin: 0 12px;
 		background: $primary-white;
 		display: block;
 		border-radius: 100px;
@@ -341,9 +339,9 @@
 		color: $primary-text-color;
 	}
 
-  &__icon {
-    color: $primary-text-color;
-  }
+	&__icon {
+		color: $primary-text-color;
+	}
 
 	&__sub {
 		display: none;
@@ -421,7 +419,7 @@
 	}
 
 	&__input {
-    background: transparent;
+		background: transparent;
 		outline: transparent;
 		line-height: 1.7;
 		color: #5f6775;
