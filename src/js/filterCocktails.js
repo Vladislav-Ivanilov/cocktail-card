@@ -4,6 +4,7 @@ import cardIngredients from '../templates/cardIngredients.hbs';
 import errorPage from '../templates/errorPage.hbs';
 
 import { Select } from './select';
+import setModal from './setModal';
 
 const api = new CocktailsApi();
 const select = new Select('#selector');
@@ -60,6 +61,7 @@ function handelFilter(event) {
       refs.inputFilterEl.textContent = event.target.id;
       select.close();
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+      setModal();
     });
   }
 }
@@ -105,6 +107,7 @@ function handelInputSubmit(event) {
       refs.blockCardEL.innerHTML = '';
       refs.titleEL.textContent = 'Searching results';
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+      setModal();
     })
     .catch(() => {
       refs.titleEL.textContent = '';
@@ -150,6 +153,7 @@ function renderMainPage(cocktails) {
       cardCocktails(cocktails[key].drinks)
     );
   }
+  setModal();
 }
 
 getRandomCocktails();

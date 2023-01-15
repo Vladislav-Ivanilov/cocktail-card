@@ -5,7 +5,6 @@
 
 	@media screen and (min-width: $tablet) {
 		width: 820px;
-		height: 600px;
 	}
 
 	&__wrapper-top {
@@ -48,8 +47,10 @@
 
 	&__image {
 		margin-bottom: 22px;
+    max-width: 100%;
 
 		@media screen and (min-width: $tablet) {
+      max-width: 288px;
 			margin-bottom: 28px;
 		}
 	}
@@ -78,6 +79,7 @@
 		color: $primary-text-color;
 		background-color: transparent;
 		border: none;
+    cursor:pointer;
 	}
 
 	&__wrapper {
@@ -118,6 +120,7 @@
 	&__item {
 		color: $modal-text-color;
 		line-height: 1.6;
+    cursor:pointer;
 	}
 
 	&__star {

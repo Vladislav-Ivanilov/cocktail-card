@@ -1,7 +1,8 @@
-{{#each}}
+<div class="modal">
+{{#each this}}
 
   <div class='ingredients'>
-    <h3 class='ingredients__title'>{{strDrink}}</h3>
+    <h3 class='ingredients__title'>{{strIngredient}}</h3>
     <p class='ingredients__base'>{{strType}}</p>
     <div class='ingredients__line'></div>
     <p class='ingredients__description'>{{strDescription}}</p>
@@ -9,19 +10,11 @@
     <ul class='ingredients__list list'>
       <li class='ingredients__item'>
         <span class='ingredients__star'>✶</span>
-        Type:Bitters
+        Type:{{strType}}
       </li>
       <li class='ingredients__item'>
         <span class='ingredients__star'>✶</span>
-        Country of origin:Italy
-      </li>
-      <li class='ingredients__item'>
-        <span class='ingredients__star'>✶</span>
-        Alcohol by volume:20.5-28.5%
-      </li>
-      <li class='ingredients__item'>
-        <span class='ingredients__star'>✶</span>
-        Flavour: Bitter, spicy and sweet
+        Alcohol by volume:{{strAlcohol}}
       </li>
     </ul>
     <div class='ingredients__btn-wrapper'>
@@ -34,3 +27,4 @@
     </button>
   </div>
 {{/each}}
+</div>
