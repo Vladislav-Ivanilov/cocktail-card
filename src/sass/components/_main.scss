@@ -24,6 +24,8 @@
 		flex-direction: column;
 		justify-content: center;
 		gap: 20px;
+		margin-bottom: 30px;
+		
 		@media screen and (min-width: $tablet) {
 			gap: 30px;
 			flex-direction: row;
