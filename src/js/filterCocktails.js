@@ -2,6 +2,7 @@ import CocktailsApi from './cocktails_api';
 import cardCocktails from '../templates/cardCocktails.hbs';
 import cardIngredients from '../templates/cardIngredients.hbs';
 import errorPage from '../templates/errorPage.hbs';
+
 import { Select } from './select';
 
 const api = new CocktailsApi();
@@ -13,9 +14,9 @@ const refs = {
   filterHeroMob: document.querySelector('.hero-mob__select-list'),
   filterHero: document.querySelector('.hero-tablet__select'),
   blockCardEL: document.querySelector('.card__list'),
-  mainEl: document.querySelector('.card'),
   titleEL: document.querySelector('#list-title'),
   inputFilterEl: document.querySelector('.hero-mob__select-input>span'),
+  paginationEl: document.querySelector('.pagination__list'),
 };
 
 refs.inputMobEL.addEventListener('submit', handelInputSubmit);
@@ -40,6 +41,8 @@ class Pagination {
   }
 }
 
+
+
 const pagination = new Pagination();
 
 setPageLimit();
@@ -61,6 +64,8 @@ function handelFilter(event) {
   }
 }
 
+const paginationObj = {};
+
 function handelInputSubmit(event) {
   event.preventDefault();
 
@@ -75,6 +80,25 @@ function handelInputSubmit(event) {
       }
 
       pagination.data = response.drinks;
+      let counter = 1;
+      let partOfData = [];
+
+      response.drinks.forEach(element => {
+        partOfData.push(element);
+
+        if (partOfData.length === pagination.limit) {
+          paginationObj[counter] = partOfData;
+          partOfData = [];
+          counter += 1;
+        }
+      });
+
+			const paginationInsert = 
+
+
+      console.log(paginationObj);
+			//class="pagination__item">
+
       setPageLimit();
       const items = pagination.createChunks();
 
