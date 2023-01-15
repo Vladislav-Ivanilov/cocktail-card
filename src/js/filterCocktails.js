@@ -24,6 +24,7 @@ refs.inputMobEL.addEventListener('submit', handelInputSubmit);
 refs.inputEL.addEventListener('submit', handelInputSubmit);
 refs.filterHero.addEventListener('click', handelFilter);
 refs.filterHeroMob.addEventListener('click', handelFilter);
+refs.paginationEl.addEventListener('click', clickPagination);
 
 class Pagination {
   constructor() {
@@ -53,12 +54,31 @@ function handelFilter(event) {
     api.fetchCocktailsByFirstLetter(selectFilterId).then(response => {
       pagination.data = response.drinks;
       const items = pagination.createChunks();
-      console.log(items);
       refs.blockCardEL.innerHTML = '';
       refs.titleEL.textContent = 'Searching results';
       refs.inputFilterEl.textContent = event.target.id;
       select.close();
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+      let counter = 1;
+      let partOfData = [];
+
+      response.drinks.forEach(element => {
+        partOfData.push(element);
+
+        if (partOfData.length === pagination.limit) {
+          paginationObj[counter] = partOfData;
+          partOfData = [];
+          counter += 1;
+        }
+      });
+
+      let teamPlay = ``;
+
+      for (const key in paginationObj) {
+        teamPlay += `<li class="pagination__item">${key}</li>`;
+      }
+      refs.paginationEl.innerHTML = '';
+      refs.paginationEl.insertAdjacentHTML('afterbegin', teamPlay);
       setModal();
     });
   }
@@ -79,34 +99,30 @@ function handelInputSubmit(event) {
         throw new Error(error);
       }
 
-      //pagination.data = response.drinks;
-      //let counter = 1;
-      //let partOfData = [];
+      pagination.data = response.drinks;
+      let counter = 1;
+      let partOfData = [];
 
-      //response.drinks.forEach(element => {
-      //  partOfData.push(element);
+      response.drinks.forEach(element => {
+        partOfData.push(element);
 
-      //  if (partOfData.length === pagination.limit) {
-      //    paginationObj[counter] = partOfData;
-      //    partOfData = [];
-      //    counter += 1;
-      //  }
-      //});
+        if (partOfData.length === pagination.limit) {
+          paginationObj[counter] = partOfData;
+          partOfData = [];
+          counter += 1;
+        }
+      });
 
-      //function paginationInsert(arrData, rowPerPAge, page) {
-      //  const start = rowPerPAge * page;
-      //  const end = start * rowPerPAge;
-      //  const paginationData = arrData.slice(start, end);
+      let teamPlay = ``;
 
-      //  paginationData.forEach(element => {
-
-      //	});
-      //}
-
-      console.log(paginationObj);
-      //class="pagination__item">
+      for (const key in paginationObj) {
+        teamPlay += `<li class="pagination__item">${key}</li>`;
+      }
+      refs.paginationEl.innerHTML = '';
+      refs.paginationEl.insertAdjacentHTML('afterbegin', teamPlay);
 
       setPageLimit();
+
       const items = pagination.createChunks();
 
       refs.blockCardEL.innerHTML = '';
@@ -119,6 +135,16 @@ function handelInputSubmit(event) {
       refs.blockCardEL.innerHTML = '';
       refs.blockCardEL.insertAdjacentHTML('afterbegin', errorPage());
     });
+}
+
+function clickPagination(event) {
+  if (event.target.tagName === 'LI') {
+    refs.blockCardEL.innerHTML = '';
+    refs.blockCardEL.insertAdjacentHTML(
+      'afterbegin',
+      cardCocktails(paginationObj[event.target.textContent])
+    );
+  }
 }
 
 function setPageLimit() {
@@ -170,7 +196,6 @@ api
 api
   .fetchCocktaileDetaileById('11007') // шукає коктель за ід
   .then(response => {
-    console.log(response);
     return response;
   });
 api
