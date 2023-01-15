@@ -12,7 +12,7 @@
 		line-height: 42px;
 		text-align: center;
 		margin-bottom: 60px;
-		
+
 		@media screen and (min-width: $tablet) {
 			font-weight: 700;
 			font-size: 32px;
@@ -27,25 +27,23 @@
 	}
 
 	&__img-wrapper {
+		margin: 0 auto;
+		width: 280px;
+		height: 310px;
 		background-image: url("/src/images/card/frame320@2x.png");
 		background-size: cover;
 		background-position: center;
-		background-repeat: no-repeat;
 
 		@media screen and (min-width: $tablet) {
-		background-image: url("/src/images/card/frame768.png");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;	
+			width: 345px;
+			height: 380px;
+			background-image: url("/src/images/card/frame768.png");
 		}
 
 		@media screen and (min-width: $desktop) {
-		background-image: url("/src/images/card/frame1200.png");
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+			background-image: url("/src/images/card/frame1200.png");
 		}
-}
+	}
 }
 
 .fav-cocktails {

@@ -15,10 +15,6 @@
 	&__wrapper-bottom {
 		margin-top: 40px;
 	}
-
-	@media screen and (max-width: $tablet) {
-		padding: 40px 20px;
-	}
 }
 
 .cocktaile-card {
@@ -47,10 +43,10 @@
 
 	&__image {
 		margin-bottom: 22px;
-    max-width: 100%;
+		max-width: 100%;
 
 		@media screen and (min-width: $tablet) {
-      max-width: 288px;
+			max-width: 288px;
 			margin-bottom: 28px;
 		}
 	}
@@ -79,7 +75,7 @@
 		color: $primary-text-color;
 		background-color: transparent;
 		border: none;
-    cursor:pointer;
+		cursor: pointer;
 	}
 
 	&__wrapper {
@@ -120,7 +116,7 @@
 	&__item {
 		color: $modal-text-color;
 		line-height: 1.6;
-    cursor:pointer;
+		cursor: pointer;
 	}
 
 	&__star {
