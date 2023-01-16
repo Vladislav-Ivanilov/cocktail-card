@@ -179,18 +179,12 @@
 		&:focus {
 			background-color: $accent-color;
 			color: $background;
-
-      .header-menu__sub-link{
-        color: $background;
-      }
-
 			.header-menu__sub-link {
 				color: $background;
 			}
-
 		}
 	}
-	&__sub-link{
+	&__sub-link {
 		font-size: 18px;
 		line-height: 1.3;
 		color: $primary-text-color;
