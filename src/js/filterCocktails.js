@@ -24,6 +24,7 @@ refs.inputMobEL.addEventListener('submit', handelInputSubmit);
 refs.inputEL.addEventListener('submit', handelInputSubmit);
 refs.filterHero.addEventListener('click', handelFilter);
 refs.filterHeroMob.addEventListener('click', handelFilter);
+refs.paginationEl.addEventListener('click', clickPagination);
 
 class Pagination {
   constructor() {
@@ -53,12 +54,32 @@ function handelFilter(event) {
     api.fetchCocktailsByFirstLetter(selectFilterId).then(response => {
       pagination.data = response.drinks;
       const items = pagination.createChunks();
-      console.log(items);
       refs.blockCardEL.innerHTML = '';
       refs.titleEL.textContent = 'Searching results';
       refs.inputFilterEl.textContent = event.target.id;
       select.close();
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+
+      let counter = 1;
+      let partOfData = [];
+
+      response.drinks.forEach(element => {
+        partOfData.push(element);
+
+        if (partOfData.length === pagination.limit) {
+          paginationObj[counter] = partOfData;
+          partOfData = [];
+          counter += 1;
+        }
+      });
+
+      let teamPlay = ``;
+
+      for (const key in paginationObj) {
+        teamPlay += `<li class="pagination__item">${key}</li>`;
+      }
+      refs.paginationEl.innerHTML = '';
+      refs.paginationEl.insertAdjacentHTML('afterbegin', teamPlay);
 
       setModal();
       setFavoriteEvents();
@@ -95,10 +116,17 @@ function handelInputSubmit(event) {
         }
       });
 
-      console.log(paginationObj);
-			//class="pagination__item">
+      let teamPlay = ``;
+
+      for (const key in paginationObj) {
+        teamPlay += `<li class="pagination__item">${key}</li>`;
+      }
+      refs.paginationEl.innerHTML = '';
+      refs.paginationEl.insertAdjacentHTML('afterbegin', teamPlay);
+
 
       setPageLimit();
+
       const items = pagination.createChunks();
 
       refs.blockCardEL.innerHTML = '';
@@ -112,6 +140,16 @@ function handelInputSubmit(event) {
       refs.blockCardEL.innerHTML = '';
       refs.blockCardEL.insertAdjacentHTML('afterbegin', errorPage());
     });
+}
+
+function clickPagination(event) {
+  if (event.target.tagName === 'LI') {
+    refs.blockCardEL.innerHTML = '';
+    refs.blockCardEL.insertAdjacentHTML(
+      'afterbegin',
+      cardCocktails(paginationObj[event.target.textContent])
+    );
+  }
 }
 
 function setPageLimit() {
@@ -157,3 +195,18 @@ function renderMainPage(cocktails) {
 }
 
 getRandomCocktails();
+
+
+api
+  .fetchCocktailsByName('negroni') // шукає коктель за назвою
+  .then(response => response.drinks);
+
+api
+  .fetchCocktaileDetaileById('11007') // шукає коктель за ід
+  .then(response => {
+    return response;
+  });
+api
+  .fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
+  .then(response => response.ingredients);
+
