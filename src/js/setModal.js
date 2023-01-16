@@ -1,4 +1,4 @@
-import * as basicLightbox from 'basiclightbox'
+import * as basicLightbox from 'basiclightbox';
 import modalCocktails from '../templates/modalCocktails.hbs';
 import modalIngrediends from '../templates/modalIngrediends.hbs';
 import CocktailsApi from './cocktails_api';

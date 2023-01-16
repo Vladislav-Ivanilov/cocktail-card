@@ -1,10 +1,10 @@
 import CocktailsApi from './cocktails_api';
 import cardCocktails from '../templates/cardCocktails.hbs';
-import cardIngredients from '../templates/cardIngredients.hbs';
 import errorPage from '../templates/errorPage.hbs';
 
 import { Select } from './select';
 import setModal from './setModal';
+import setFavoriteEvents from './favorite';
 
 const api = new CocktailsApi();
 const select = new Select('#selector');
@@ -42,8 +42,6 @@ class Pagination {
   }
 }
 
-
-
 const pagination = new Pagination();
 
 setPageLimit();
@@ -61,7 +59,9 @@ function handelFilter(event) {
       refs.inputFilterEl.textContent = event.target.id;
       select.close();
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+
       setModal();
+      setFavoriteEvents();
     });
   }
 }
@@ -95,9 +95,6 @@ function handelInputSubmit(event) {
         }
       });
 
-			const paginationInsert = 
-
-
       console.log(paginationObj);
 			//class="pagination__item">
 
@@ -108,6 +105,7 @@ function handelInputSubmit(event) {
       refs.titleEL.textContent = 'Searching results';
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
       setModal();
+      setFavoriteEvents();
     })
     .catch(() => {
       refs.titleEL.textContent = '';
@@ -141,7 +139,8 @@ const getRandomCocktails = function () {
     promises.push(promise);
   }
 
-  Promise.all(promises).then(response => renderMainPage(response));
+  Promise.all(promises).then(response => {
+    renderMainPage(response)});
 };
 
 function renderMainPage(cocktails) {
@@ -154,20 +153,7 @@ function renderMainPage(cocktails) {
     );
   }
   setModal();
+  setFavoriteEvents();
 }
 
 getRandomCocktails();
-
-api
-  .fetchCocktailsByName('negroni') // шукає коктель за назвою
-  .then(response => response.drinks);
-
-api
-  .fetchCocktaileDetaileById('11007') // шукає коктель за ід
-  .then(response => {
-    console.log(response);
-    return response;
-  });
-api
-  .fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
-  .then(response => response.ingredients);
