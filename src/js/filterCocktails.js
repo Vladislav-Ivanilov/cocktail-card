@@ -1,10 +1,10 @@
 import CocktailsApi from './cocktails_api';
 import cardCocktails from '../templates/cardCocktails.hbs';
-import cardIngredients from '../templates/cardIngredients.hbs';
 import errorPage from '../templates/errorPage.hbs';
 
 import { Select } from './select';
 import setModal from './setModal';
+import setFavoriteEvents from './favorite';
 
 const api = new CocktailsApi();
 const select = new Select('#selector');
@@ -59,6 +59,7 @@ function handelFilter(event) {
       refs.inputFilterEl.textContent = event.target.id;
       select.close();
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
+
       let counter = 1;
       let partOfData = [];
 
@@ -79,7 +80,9 @@ function handelFilter(event) {
       }
       refs.paginationEl.innerHTML = '';
       refs.paginationEl.insertAdjacentHTML('afterbegin', teamPlay);
+
       setModal();
+      setFavoriteEvents();
     });
   }
 }
@@ -121,6 +124,7 @@ function handelInputSubmit(event) {
       refs.paginationEl.innerHTML = '';
       refs.paginationEl.insertAdjacentHTML('afterbegin', teamPlay);
 
+
       setPageLimit();
 
       const items = pagination.createChunks();
@@ -129,6 +133,7 @@ function handelInputSubmit(event) {
       refs.titleEL.textContent = 'Searching results';
       refs.blockCardEL.insertAdjacentHTML('afterbegin', cardCocktails(items));
       setModal();
+      setFavoriteEvents();
     })
     .catch(() => {
       refs.titleEL.textContent = '';
@@ -172,7 +177,8 @@ const getRandomCocktails = function () {
     promises.push(promise);
   }
 
-  Promise.all(promises).then(response => renderMainPage(response));
+  Promise.all(promises).then(response => {
+    renderMainPage(response)});
 };
 
 function renderMainPage(cocktails) {
@@ -185,9 +191,11 @@ function renderMainPage(cocktails) {
     );
   }
   setModal();
+  setFavoriteEvents();
 }
 
 getRandomCocktails();
+
 
 api
   .fetchCocktailsByName('negroni') // шукає коктель за назвою
@@ -201,3 +209,4 @@ api
 api
   .fetchIngredientsDetaileById('552') //шукає інгредієнт за ід
   .then(response => response.ingredients);
+
