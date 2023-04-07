@@ -3,7 +3,7 @@ export class Select {
     this.el = document.querySelector(selector);
     this.options = options;
     this.placeholder = 'A';
-  }
+   }
 
   setup() {
     this.clickHandler = this.clickHandler.bind(this);
