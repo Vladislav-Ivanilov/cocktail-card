@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vladislav-Ivanilov/cocktail-card.git"
+    "url": "git+https://github.com/MP23-web/cocktail-card.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Vladislav-Ivanilov/cocktail-card/issues"
+    "url": "https://github.com/MP23-web/cocktail-card/issues"
   },
   "dependencies": {
     "axios": "^1.2.2",
